@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Imagen y Enlaces</title>
+    <style>
+        /* Comando para poner fondo que cubra toda la página */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://scontent.fpbc2-3.fna.fbcdn.net/v/t1.15752-9/478082796_9997359380291918_391557554886686023_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_ohc=qsu1wzb7tN8Q7kNvgEyyvsW&_nc_oc=AdiMYW3xhqcLw3nJU_2lFy__ZHVxvLG1eZdZ6RbmnFCjsspXE7PuPpCGu8X-F4wCOELDn3r6SY2hL7hQl2ru4GWc&_nc_zt=23&_nc_ht=scontent.fpbc2-3.fna&oh=03_Q7cD1gEff8rUBhREyaztvihck73iFrHCtyEI_K8UEFlEJ2LoNg&oe=67DDEC88');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            animation: fadeIn 2s ease-out; /* Animación de entrada suave */
+        }
+
+        /* Animación de desvanecimiento */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Efecto de entrada para los enlaces */
+        a {
+            display: block;
+            margin: 10px;
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 18px;
+            opacity: 0;
+            animation: fadeInLinks 1s ease-out forwards; /* Animación de los enlaces */
+        }
+
+        @keyframes fadeInLinks {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #0056b3; /* Cambio de color al pasar el ratón */
+        }
+
+        /* Estilo para el contenedor de respuesta */
+        .response-container {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro y transparente */
+            border-radius: 5px;
+            animation: fadeIn 2s ease-out; /* Animación de entrada para el contenedor */
+        }
+
+        /* Animación para el foco en el campo de texto */
+        textarea {
+            width: 60%; /* Tamaño más pequeño */
+            height: 100px; /* Menor altura */
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+            font-size: 16px;
+            transition: transform 0.3s ease; /* Animación de transformación */
+        }
+
+        textarea:focus {
+            transform: scale(1.05); /* Efecto de aumento cuando el campo se enfoca */
+            border: 2px solid #007BFF;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave para el color de fondo */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1); /* Efecto de aumento en el botón al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bienvenido a la Crew</h1>
+    
+    <h2>Enlaces</h2>
+    <a href="https://socialclub.rockstargames.com/crew/endiamantadoscrew/hierarchy" target="_blank">Enlace Crew</a>
+    <a href="https://www.tiktok.com/@_endiamantados_04" target="_blank">TikTok Crew</a>
+    <a href="https://socialclub.rockstargames.com/member/Xll_Percy_llX?id=259224278" target="_blank">Perfil Del Dueño</a>
+
+    <!-- Caja de texto para enviar respuesta -->
+    <div class="response-container">
+        <h3>Identificate aqui:</h3>
+        <textarea id="userResponse" placeholder="Escribe tu User De RockstarGames..."></textarea><br>
+        <button onclick="submitResponse()">Enviar</button>
+    </div>
+
+    <script>
+        function submitResponse() {
+            var userResponse = document.getElementById("userResponse").value;
+            if (userResponse.trim() !== "") {
+                // Aquí puedes agregar un mensaje emergente o cualquier otra acción
+                alert("Gracias: " + userResponse);
+                document.getElementById("userResponse").value = ""; // Limpiar el campo de texto
+            } else {
+                alert("Por favor, escribe algo antes de enviar.");
+            }
+        }
+    </script>
+
+</body>
+</html>
